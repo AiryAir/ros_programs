@@ -16,9 +16,9 @@ def poseCallback(pose_message):
 
    #task 4. display the x, y, and theta received from the message
     print ("pose callback")
-    print ('x = ' % Pose.x)
-    print ('y = %f' % Pose.y)
-    print ('yaw = '% Pose.theta) 
+    print ('x = ' % pose_message.x)
+    print ('y = %f' % pose_message.y)
+    print ('yaw = '% pose_message.theta) 
 
 if __name__ == '__main__':
     try:
@@ -26,7 +26,7 @@ if __name__ == '__main__':
         rospy.init_node('turtlesim_motion_pose', anonymous=True)        
 
        #task 2. subscribe to the topic of the pose of the Turtlesim
-        rospy.Subscriber("/turtlesim/Pose", Pose, queue_size=10)
+        pose_sub = rospy.Subscriber("position_topic", Pose, poseCallback)
 
        #task 3. spin
         rospy.spin()
