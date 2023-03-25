@@ -24,9 +24,9 @@ def move(speed, distance):
     #declare a Twist message to send velocity commands
     velocity_message = Twist()
 
-    
 
-    
+
+
 
     #get current location from the global variable before entering the loop 
     x0=x
